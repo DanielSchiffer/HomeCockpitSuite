@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HCS-Winforms", "HCS-Winform
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimBriefEnhancer", "SimBriefEnhancer\SimBriefEnhancer.csproj", "{C5E52C90-AC0F-40AD-BC9F-C5F95314EE51}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CockpitEnhancer", "CockpitEnhancer\CockpitEnhancer.csproj", "{B6F0AD75-4510-4C2E-ABF2-3B7D378BDD12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CockpitEnhancer_Core", "CockpitEnhancer\CockpitEnhancer_Core.csproj", "{B6F0AD75-4510-4C2E-ABF2-3B7D378BDD12}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{85927BC9-0B2F-4536-9E98-D56C2DD2F66F}"
 EndProject
@@ -23,9 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "DTO\DTO.csproj", "{5
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlugplanungContract", "FlugplanungContract\FlugplanungContract.csproj", "{CEC07B30-ED8E-4849-AE7B-DA8025359BF4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CockpitEnhancerStandart", "CockpitEnhancerStandart\CockpitEnhancerStandart.csproj", "{BE36E3AE-B0E0-4084-A8BB-650697067626}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CockpitEnhancer_Standart", "CockpitEnhancerStandart\CockpitEnhancer_Standart.csproj", "{BE36E3AE-B0E0-4084-A8BB-650697067626}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CockpitEnhancerClassic", "CockpitEnhancerClassic\CockpitEnhancerClassic.csproj", "{E5C77923-1350-4C37-B9A6-B8CEA44D37F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CockpitEnhancer_Classic", "CockpitEnhancerClassic\CockpitEnhancer_Classic.csproj", "{E5C77923-1350-4C37-B9A6-B8CEA44D37F2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CockpitContract", "CockpitContract\CockpitContract.csproj", "{3D47CD18-33A8-43E7-B00D-5168F5ADADF6}"
 EndProject

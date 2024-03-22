@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+    <RootNamespace>DanielSchiffer.HCS.Logic.CockpitEnhancer.Standart</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CockpitContract\CockpitContract.csproj" />
+    <ProjectReference Include="..\CockpitEnhancerClassic\CockpitEnhancer_Classic.csproj" />
+  </ItemGroup>
+
+</Project>

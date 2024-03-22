@@ -4,11 +4,12 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>DanielSchiffer.Logic.CockpitEnhancer</RootNamespace>
+    <RootNamespace>DanielSchiffer.HCS.Logic.CockpitEnhancer.Core</RootNamespace>
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
+	<ProjectReference Include="..\CockpitContract\CockpitContract.csproj" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
   </ItemGroup>
 

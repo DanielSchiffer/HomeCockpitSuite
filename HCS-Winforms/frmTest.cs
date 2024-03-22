@@ -1,4 +1,4 @@
-﻿using CockpitEnhancerClassic;
+﻿using DanielSchiffer.HCS.Contracts.CockpitContract;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,15 +13,18 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms
 {
     public partial class frmTest : Form
     {
-        public frmTest()
+        private readonly IFlightSimInterface flightSim;
+
+        public frmTest(IFlightSimInterface flightSim)
         {
             InitializeComponent();
+            this.flightSim = flightSim;
         }
 
         private void btnAusführen_Click(object sender, EventArgs e)
         {
-            var flight = new Flightsim();
-            if (flight.Start())
+           
+            if (flightSim.Start())
             {
                 tbAusgabe.Text = "Gestartet!";
             }

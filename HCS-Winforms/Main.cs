@@ -1,20 +1,21 @@
 using DanielSchiffer.Contracts.FlugplanungContract;
+using DanielSchiffer.HCS.Contracts.CockpitContract;
 
 namespace DanielSchiffer.HCS.UI.HCS_Winforms;
 
 public partial class Main : Form
 {
-    private readonly IPlanung planung;
+    private readonly IFlightSimInterface _FlightSim;
 
-    public Main(IPlanung planung)
+    public Main(IFlightSimInterface flightSim)
     {
         InitializeComponent();
-        this.planung = planung;
+        this._FlightSim = flightSim;
     }
 
     private void testfensterToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        var form = new frmTest();
+        var form = new frmTest(_FlightSim);
         form.Show();    
     }
 }

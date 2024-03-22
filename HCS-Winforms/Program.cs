@@ -1,10 +1,9 @@
 using Microsoft.Extensions.DependencyInjection;
-
-
 using DanielSchiffer.Contracts.FlugplanungContract;
 using DanielSchiffer.HCS.Domain.SimBriefEnhancer;
 using System.CodeDom.Compiler;
-
+using DanielSchiffer.HCS.Contracts.CockpitContract;
+using CockpitEnhancerClassic;
 namespace DanielSchiffer.HCS.UI.HCS_Winforms;
 
 internal static class Program
@@ -34,20 +33,20 @@ internal static class Program
     private static void ConfigureServices(ServiceCollection serviceCollection)
     {
         serviceCollection.AddSingleton<Starter,Starter>();
-        serviceCollection.AddScoped<IPlanung, SimBrief>();
+        serviceCollection.AddScoped<IFlightSimInterface, Flightsim>();
     }
 
     public class Starter
     {
-        private readonly IPlanung _flugplanung;
+        private readonly IFlightSimInterface _Flightsim;
 
         /// <summary>
         /// Initialisiert eine neue Instanz der Starter-Klasse.
         /// </summary>
         /// <param name="textSchreiber">Der Textschreiber, der verwendet werden soll.</param>
-        public Starter(IPlanung flugplanung)
+        public Starter(IFlightSimInterface flightsim)
         {
-            _flugplanung = flugplanung;
+            _Flightsim = flightsim;
         }
 
         /// <summary>
@@ -58,7 +57,7 @@ internal static class Program
             // Die Anwendungskonfiguration anpassen, z.B. DPI-Einstellungen oder Standardschriftart festlegen
             // siehe auch https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Main(_flugplanung));
+            Application.Run(new Main(_Flightsim));
         }
     }
 }

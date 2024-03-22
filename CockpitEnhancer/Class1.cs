@@ -1,7 +1,6 @@
-﻿namespace DanielSchiffer.Domain.CockpitEnhancer
-{
-    public class Class1
-    {
+﻿namespace DanielSchiffer.HCS.Logic.CockpitEnhancer.Core;
 
-    }
+public class Class1
+{
+
 }

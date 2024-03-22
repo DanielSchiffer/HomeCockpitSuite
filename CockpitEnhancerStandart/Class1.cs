@@ -1,8 +1,9 @@
 ﻿using System;
+using CockpitEnhancerClassic;
 
 namespace CockpitEnhancerStandart
 {
-    public class Class1
+    public class Class1 
     {
 
     }
