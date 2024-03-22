@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CockpitEnhancerClassic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,15 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms
 
         private void btnAusführen_Click(object sender, EventArgs e)
         {
-
+            var flight = new Flightsim();
+            if (flight.Start())
+            {
+                tbAusgabe.Text = "Gestartet!";
+            }
+            else
+            {
+                tbAusgabe.Text = "nicht gestartet!";
+            }
         }
     }
 }

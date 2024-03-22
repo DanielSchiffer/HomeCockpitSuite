@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
+            tbAusgabe = new TextBox();
             btnAusführen = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // tbAusgabe
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(12, 81);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(722, 372);
-            textBox1.TabIndex = 0;
+            tbAusgabe.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tbAusgabe.Location = new Point(12, 81);
+            tbAusgabe.Multiline = true;
+            tbAusgabe.Name = "tbAusgabe";
+            tbAusgabe.Size = new Size(722, 372);
+            tbAusgabe.TabIndex = 0;
             // 
             // btnAusführen
             // 
@@ -57,7 +57,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(746, 465);
             Controls.Add(btnAusführen);
-            Controls.Add(textBox1);
+            Controls.Add(tbAusgabe);
             Name = "frmTest";
             Text = "frmTest";
             ResumeLayout(false);
@@ -66,7 +66,7 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox tbAusgabe;
         private Button btnAusführen;
     }
 }
