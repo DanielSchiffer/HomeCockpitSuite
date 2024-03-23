@@ -16,9 +16,9 @@ public partial class FrmMain : Form
     {
         InitializeComponent();
         
-        tbDatum.DataBindings.Add(nameof(tbDatum.Text), vm, "Datum", false, DataSourceUpdateMode.OnPropertyChanged);
-        tbLocalTime.DataBindings.Add(nameof(tbLocalTime.Text), vm, "Uhrzeit", false, DataSourceUpdateMode.OnPropertyChanged);
-        tbUTC.DataBindings.Add(nameof(tbUTC.Text), vm, "Utc", false, DataSourceUpdateMode.OnPropertyChanged);
+        tbDatum.DataBindings.Add(nameof(tbDatum.Text), vm, nameof(vm.Datum), false, DataSourceUpdateMode.OnPropertyChanged);
+        tbLocalTime.DataBindings.Add(nameof(tbLocalTime.Text), vm, nameof(vm.Uhrzeit), false, DataSourceUpdateMode.OnPropertyChanged);
+        tbUTC.DataBindings.Add(nameof(tbUTC.Text), vm, nameof(vm.Utc), false, DataSourceUpdateMode.OnPropertyChanged);
 
         //Events
         FormClosing += (s, e) => vm.OnClosing();
