@@ -8,20 +8,26 @@ using System.Windows.Forms;
 
 namespace DanielSchiffer.HCS.UI.HCS_Winforms.Main;
 
-public partial class frmMain : Form
+public partial class FrmMain : Form
 {
 
-    private readonly Model_frmMain vm;
 
-    public frmMain(Model_frmMain vm)
-    { 
+    public FrmMain(MainModel vm)
+    {
         InitializeComponent();
-        this.vm = vm;
+        
         tbDatum.DataBindings.Add(nameof(tbDatum.Text), vm, "Datum", false, DataSourceUpdateMode.OnPropertyChanged);
+        tbLocalTime.DataBindings.Add(nameof(tbLocalTime.Text), vm, "Uhrzeit", false, DataSourceUpdateMode.OnPropertyChanged);
+        tbUTC.DataBindings.Add(nameof(tbUTC.Text), vm, "Utc", false, DataSourceUpdateMode.OnPropertyChanged);
+
+        //Events
+        FormClosing += (s, e) => vm.OnClosing();
+
+        //Menu
+        testfensterToolStripMenuItem.Click += (s, e) => vm.OnTestWindow();
     }
 
-    
+   
 
-    
 }
 

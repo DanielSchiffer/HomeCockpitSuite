@@ -39,18 +39,18 @@ internal static class Program
     {
         serviceCollection.AddSingleton<Starter,Starter>();
         serviceCollection.AddScoped<IFlightSimInterface, Flightsim>();
-        serviceCollection.AddScoped<Model_frmMain>();
+        serviceCollection.AddScoped<MainModel>();
     }
 
     public class Starter
     {
         private readonly IFlightSimInterface _Flightsim;
-        private readonly Model_frmMain _Model_frmMain;
+        private readonly MainModel _Model_frmMain;
         /// <summary>
         /// Initialisiert eine neue Instanz der Starter-Klasse.
         /// </summary>
         /// <param name="textSchreiber">Der Textschreiber, der verwendet werden soll.</param>
-        public Starter(IFlightSimInterface flightsim, Model_frmMain model_frmMain)
+        public Starter(IFlightSimInterface flightsim, MainModel model_frmMain)
         {
             _Flightsim = flightsim;
             _Model_frmMain = model_frmMain;
@@ -61,7 +61,7 @@ internal static class Program
         /// </summary>
         public void Execute()
         {
-            _Model_frmMain.show(); 
+            _Model_frmMain.Show(); 
             Application.Run();
         }
     }
