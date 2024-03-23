@@ -64,7 +64,6 @@
             testfensterToolStripMenuItem.Name = "testfensterToolStripMenuItem";
             testfensterToolStripMenuItem.Size = new Size(112, 29);
             testfensterToolStripMenuItem.Text = "Testfenster";
-            testfensterToolStripMenuItem.Click += testfensterToolStripMenuItem_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -191,7 +190,7 @@
             imageList1.ImageSize = new Size(16, 16);
             imageList1.TransparentColor = Color.Transparent;
             // 
-            // Main
+            // frmMain
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -202,9 +201,8 @@
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             MainMenuStrip = MainMenu;
             Margin = new Padding(5, 6, 5, 6);
-            Name = "Main";
+            Name = "frmMain";
             Text = "Form1";
-            Load += Main_Load;
             MainMenu.ResumeLayout(false);
             MainMenu.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);

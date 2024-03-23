@@ -4,6 +4,7 @@ using DanielSchiffer.HCS.Domain.SimBriefEnhancer;
 using System.CodeDom.Compiler;
 using DanielSchiffer.HCS.Contracts.CockpitContract;
 using CockpitEnhancerClassic;
+using DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels;
 namespace DanielSchiffer.HCS.UI.HCS_Winforms;
 
 internal static class Program
@@ -14,6 +15,10 @@ internal static class Program
     [STAThread]
     static void Main()
     {
+        // Die Anwendungskonfiguration anpassen, z.B. DPI-Einstellungen oder Standardschriftart festlegen
+        // siehe auch https://aka.ms/applicationconfiguration.
+        ApplicationConfiguration.Initialize();
+
 
         //Servicecollection
         var serviceCollection = new ServiceCollection();
@@ -34,19 +39,21 @@ internal static class Program
     {
         serviceCollection.AddSingleton<Starter,Starter>();
         serviceCollection.AddScoped<IFlightSimInterface, Flightsim>();
+        serviceCollection.AddScoped<Model_frmMain>();
     }
 
     public class Starter
     {
         private readonly IFlightSimInterface _Flightsim;
-
+        private readonly Model_frmMain _Model_frmMain;
         /// <summary>
         /// Initialisiert eine neue Instanz der Starter-Klasse.
         /// </summary>
         /// <param name="textSchreiber">Der Textschreiber, der verwendet werden soll.</param>
-        public Starter(IFlightSimInterface flightsim)
+        public Starter(IFlightSimInterface flightsim, Model_frmMain model_frmMain)
         {
             _Flightsim = flightsim;
+            _Model_frmMain = model_frmMain;
         }
 
         /// <summary>
@@ -54,10 +61,8 @@ internal static class Program
         /// </summary>
         public void Execute()
         {
-            // Die Anwendungskonfiguration anpassen, z.B. DPI-Einstellungen oder Standardschriftart festlegen
-            // siehe auch https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Main.frmMain(_Flightsim));
+            _Model_frmMain.show(); 
+            Application.Run();
         }
     }
 }
