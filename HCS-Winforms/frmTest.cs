@@ -14,24 +14,26 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms
     public partial class frmTest : Form
     {
         private readonly IFlightSimInterface flightSim;
+        private bool _flightSimReady;
 
         public frmTest(IFlightSimInterface flightSim)
         {
             InitializeComponent();
             this.flightSim = flightSim;
+            flightSim.LogEntryReceived += FlightSim_LogEntryReceived;
+                }
+
+        private void FlightSim_LogEntryReceived(object? sender, string e)
+        {
+            lbAusgabe.Items.Add(e);
         }
 
         private void btnAusführen_Click(object sender, EventArgs e)
         {
-           
-            if (flightSim.Start())
-            {
-                tbAusgabe.Text = "Gestartet!";
-            }
-            else
-            {
-                tbAusgabe.Text = "nicht gestartet!";
-            }
+
+            _flightSimReady = flightSim.Start();
         }
+
+
     }
 }

@@ -57,7 +57,7 @@ internal static class Program
             // Die Anwendungskonfiguration anpassen, z.B. DPI-Einstellungen oder Standardschriftart festlegen
             // siehe auch https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Main(_Flightsim));
+            Application.Run(new Main.frmMain(_Flightsim));
         }
     }
 }

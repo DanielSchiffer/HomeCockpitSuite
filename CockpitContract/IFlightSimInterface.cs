@@ -6,6 +6,10 @@ namespace DanielSchiffer.HCS.Contracts.CockpitContract
 {
     public interface IFlightSimInterface
     {
+        event EventHandler<String> LogEntryReceived;
+        event EventHandler VariableListChanged;
+        event EventHandler ValuesChanged;
+
         bool Start();
     }
 }

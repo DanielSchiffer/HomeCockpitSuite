@@ -28,18 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tbAusgabe = new TextBox();
             btnAusführen = new Button();
+            lbAusgabe = new ListBox();
             SuspendLayout();
-            // 
-            // tbAusgabe
-            // 
-            tbAusgabe.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tbAusgabe.Location = new Point(12, 81);
-            tbAusgabe.Multiline = true;
-            tbAusgabe.Name = "tbAusgabe";
-            tbAusgabe.Size = new Size(722, 372);
-            tbAusgabe.TabIndex = 0;
             // 
             // btnAusführen
             // 
@@ -51,22 +42,29 @@
             btnAusführen.UseVisualStyleBackColor = true;
             btnAusführen.Click += btnAusführen_Click;
             // 
+            // lbAusgabe
+            // 
+            lbAusgabe.FormattingEnabled = true;
+            lbAusgabe.ItemHeight = 15;
+            lbAusgabe.Location = new Point(12, 81);
+            lbAusgabe.Name = "lbAusgabe";
+            lbAusgabe.Size = new Size(722, 379);
+            lbAusgabe.TabIndex = 2;
+            // 
             // frmTest
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(746, 465);
+            Controls.Add(lbAusgabe);
             Controls.Add(btnAusführen);
-            Controls.Add(tbAusgabe);
             Name = "frmTest";
             Text = "frmTest";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private TextBox tbAusgabe;
         private Button btnAusführen;
+        private ListBox lbAusgabe;
     }
 }
