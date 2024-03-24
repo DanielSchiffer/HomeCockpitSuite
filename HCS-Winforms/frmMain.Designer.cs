@@ -194,7 +194,13 @@
             // 
             // gbStammdaten
             // 
+            gbStammdaten.Controls.Add(textBox1);
             gbStammdaten.Controls.Add(gbHeute);
+            gbStammdaten.Controls.Add(label7);
+            gbStammdaten.Controls.Add(label5);
+            gbStammdaten.Controls.Add(cbFlightNumberLock);
+            gbStammdaten.Controls.Add(comboBox1);
+            gbStammdaten.Controls.Add(label6);
             gbStammdaten.Dock = DockStyle.Fill;
             gbStammdaten.Location = new Point(4, 4);
             gbStammdaten.Margin = new Padding(4);
@@ -207,12 +213,6 @@
             // 
             // gbHeute
             // 
-            gbHeute.Controls.Add(textBox1);
-            gbHeute.Controls.Add(label7);
-            gbHeute.Controls.Add(cbFlightNumberLock);
-            gbHeute.Controls.Add(label6);
-            gbHeute.Controls.Add(comboBox1);
-            gbHeute.Controls.Add(label5);
             gbHeute.Controls.Add(tbUTC);
             gbHeute.Controls.Add(tbLocalTime);
             gbHeute.Controls.Add(tbDatum);
@@ -224,15 +224,15 @@
             gbHeute.Margin = new Padding(4);
             gbHeute.Name = "gbHeute";
             gbHeute.Padding = new Padding(4);
-            gbHeute.Size = new Size(277, 207);
+            gbHeute.Size = new Size(277, 90);
             gbHeute.TabIndex = 0;
             gbHeute.TabStop = false;
-            gbHeute.Text = "Heute";
+            gbHeute.Text = "Today";
             // 
             // textBox1
             // 
             textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Location = new Point(102, 119);
+            textBox1.Location = new Point(107, 156);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(113, 29);
             textBox1.TabIndex = 11;
@@ -241,7 +241,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(221, 103);
+            label7.Location = new Point(226, 140);
             label7.Name = "label7";
             label7.Size = new Size(30, 13);
             label7.TabIndex = 10;
@@ -250,7 +250,7 @@
             // cbFlightNumberLock
             // 
             cbFlightNumberLock.AutoSize = true;
-            cbFlightNumberLock.Location = new Point(229, 119);
+            cbFlightNumberLock.Location = new Point(234, 156);
             cbFlightNumberLock.Name = "cbFlightNumberLock";
             cbFlightNumberLock.Size = new Size(15, 14);
             cbFlightNumberLock.TabIndex = 9;
@@ -260,7 +260,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(102, 95);
+            label6.Location = new Point(107, 132);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(113, 21);
@@ -270,7 +270,7 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(8, 119);
+            comboBox1.Location = new Point(13, 156);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(67, 29);
             comboBox1.TabIndex = 7;
@@ -278,7 +278,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(8, 95);
+            label5.Location = new Point(13, 132);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(55, 21);
@@ -382,6 +382,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             gbStammdaten.ResumeLayout(false);
+            gbStammdaten.PerformLayout();
             gbHeute.ResumeLayout(false);
             gbHeute.PerformLayout();
             ResumeLayout(false);
