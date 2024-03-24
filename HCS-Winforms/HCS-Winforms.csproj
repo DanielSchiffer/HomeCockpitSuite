@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <!-- <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware> -->
+    <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 

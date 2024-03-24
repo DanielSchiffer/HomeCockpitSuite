@@ -15,7 +15,7 @@ public partial class FrmMain : Form
     public FrmMain(MainModel vm)
     {
         InitializeComponent();
-        
+
         tbDatum.DataBindings.Add(nameof(tbDatum.Text), vm, nameof(vm.Datum), false, DataSourceUpdateMode.OnPropertyChanged);
         tbLocalTime.DataBindings.Add(nameof(tbLocalTime.Text), vm, nameof(vm.Uhrzeit), false, DataSourceUpdateMode.OnPropertyChanged);
         tbUTC.DataBindings.Add(nameof(tbUTC.Text), vm, nameof(vm.Utc), false, DataSourceUpdateMode.OnPropertyChanged);
@@ -27,7 +27,6 @@ public partial class FrmMain : Form
         testfensterToolStripMenuItem.Click += (s, e) => vm.OnTestWindow();
     }
 
-   
-
+    
 }
 
