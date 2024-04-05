@@ -32,6 +32,7 @@
             MainMenu = new MenuStrip();
             testfensterToolStripMenuItem = new ToolStripMenuItem();
             flightToolStripMenuItem = new ToolStripMenuItem();
+            createToolStripMenuItem = new ToolStripMenuItem();
             simbriefToolStripMenuItem = new ToolStripMenuItem();
             navDataToolStripMenuItem = new ToolStripMenuItem();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -58,12 +59,17 @@
             label6 = new Label();
             StatusBar = new StatusStrip();
             imageList1 = new ImageList(components);
-            createToolStripMenuItem = new ToolStripMenuItem();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            tabPage2 = new TabPage();
+            groupBox2 = new GroupBox();
             MainMenu.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
             gbStammdaten.SuspendLayout();
             gbHeute.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
             SuspendLayout();
             // 
             // MainMenu
@@ -91,6 +97,12 @@
             flightToolStripMenuItem.Size = new Size(49, 19);
             flightToolStripMenuItem.Text = "Flight";
             // 
+            // createToolStripMenuItem
+            // 
+            createToolStripMenuItem.Name = "createToolStripMenuItem";
+            createToolStripMenuItem.Size = new Size(108, 22);
+            createToolStripMenuItem.Text = "Create";
+            // 
             // simbriefToolStripMenuItem
             // 
             simbriefToolStripMenuItem.Name = "simbriefToolStripMenuItem";
@@ -109,10 +121,8 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.Controls.Add(groupBox1, 0, 1);
             tableLayoutPanel1.Controls.Add(gbStammdaten, 0, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 27);
+            tableLayoutPanel1.Location = new Point(8, 9);
             tableLayoutPanel1.Margin = new Padding(5, 6, 5, 6);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
@@ -130,7 +140,7 @@
             groupBox1.Controls.Add(maskedTextBox2);
             groupBox1.Controls.Add(maskedTextBox1);
             groupBox1.Controls.Add(label4);
-            groupBox1.Location = new Point(3, 274);
+            groupBox1.Location = new Point(3, 167);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(312, 89);
             groupBox1.TabIndex = 1;
@@ -196,6 +206,7 @@
             // 
             // gbStammdaten
             // 
+            gbStammdaten.Controls.Add(groupBox1);
             gbStammdaten.Controls.Add(textBox1);
             gbStammdaten.Controls.Add(gbHeute);
             gbStammdaten.Controls.Add(label7);
@@ -211,12 +222,12 @@
             gbStammdaten.Size = new Size(327, 263);
             gbStammdaten.TabIndex = 0;
             gbStammdaten.TabStop = false;
-            gbStammdaten.Text = "Stammdaten";
+            gbStammdaten.Text = "Rootdata";
             // 
             // textBox1
             // 
             textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Location = new Point(107, 156);
+            textBox1.Location = new Point(97, 137);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(113, 29);
             textBox1.TabIndex = 11;
@@ -230,7 +241,7 @@
             gbHeute.Controls.Add(label2);
             gbHeute.Controls.Add(label1);
             gbHeute.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            gbHeute.Location = new Point(12, 38);
+            gbHeute.Location = new Point(3, 19);
             gbHeute.Margin = new Padding(4);
             gbHeute.Name = "gbHeute";
             gbHeute.Padding = new Padding(4);
@@ -305,7 +316,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(226, 140);
+            label7.Location = new Point(216, 121);
             label7.Name = "label7";
             label7.Size = new Size(30, 13);
             label7.TabIndex = 10;
@@ -314,7 +325,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(13, 132);
+            label5.Location = new Point(3, 113);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(55, 21);
@@ -324,7 +335,7 @@
             // cbFlightNumberLock
             // 
             cbFlightNumberLock.AutoSize = true;
-            cbFlightNumberLock.Location = new Point(234, 156);
+            cbFlightNumberLock.Location = new Point(224, 137);
             cbFlightNumberLock.Name = "cbFlightNumberLock";
             cbFlightNumberLock.Size = new Size(15, 14);
             cbFlightNumberLock.TabIndex = 9;
@@ -334,7 +345,7 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(13, 156);
+            comboBox1.Location = new Point(3, 137);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(67, 29);
             comboBox1.TabIndex = 7;
@@ -342,7 +353,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(107, 132);
+            label6.Location = new Point(97, 113);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(113, 21);
@@ -365,19 +376,55 @@
             imageList1.ImageSize = new Size(16, 16);
             imageList1.TransparentColor = Color.Transparent;
             // 
-            // createToolStripMenuItem
+            // tabControl1
             // 
-            createToolStripMenuItem.Name = "createToolStripMenuItem";
-            createToolStripMenuItem.Size = new Size(180, 22);
-            createToolStripMenuItem.Text = "Create";
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Dock = DockStyle.Top;
+            tabControl1.Location = new Point(0, 27);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(1006, 551);
+            tabControl1.TabIndex = 3;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(tableLayoutPanel1);
+            tabPage1.Location = new Point(4, 30);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(998, 517);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Flightdata";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(4, 30);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(998, 517);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Location = new Point(4, 580);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(998, 64);
+            groupBox2.TabIndex = 4;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Status";
             // 
             // FrmMain
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1006, 669);
+            Controls.Add(groupBox2);
+            Controls.Add(tabControl1);
             Controls.Add(StatusBar);
-            Controls.Add(tableLayoutPanel1);
             Controls.Add(MainMenu);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             MainMenuStrip = MainMenu;
@@ -393,6 +440,8 @@
             gbStammdaten.PerformLayout();
             gbHeute.ResumeLayout(false);
             gbHeute.PerformLayout();
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -429,5 +478,9 @@
         private Label label9;
         private Label label8;
         private ToolStripMenuItem createToolStripMenuItem;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
+        private GroupBox groupBox2;
     }
 }
