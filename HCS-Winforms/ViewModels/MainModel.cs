@@ -101,4 +101,8 @@ public class MainModel : ViewModelBase
         }
     }
 
+    internal void OnCreate()
+    {
+        throw new NotImplementedException();
+    }
 }
