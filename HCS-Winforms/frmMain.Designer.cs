@@ -36,6 +36,7 @@
             simbriefToolStripMenuItem = new ToolStripMenuItem();
             navDataToolStripMenuItem = new ToolStripMenuItem();
             tableLayoutPanel1 = new TableLayoutPanel();
+            gbStammdaten = new GroupBox();
             groupBox1 = new GroupBox();
             label9 = new Label();
             label8 = new Label();
@@ -43,7 +44,6 @@
             maskedTextBox2 = new MaskedTextBox();
             maskedTextBox1 = new MaskedTextBox();
             label4 = new Label();
-            gbStammdaten = new GroupBox();
             textBox1 = new TextBox();
             gbHeute = new GroupBox();
             tbUTC = new TextBox();
@@ -59,10 +59,15 @@
             label6 = new Label();
             StatusBar = new StatusStrip();
             imageList1 = new ImageList(components);
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            tabPage2 = new TabPage();
+            groupBox2 = new GroupBox();
+            updateFromFileToolStripMenuItem = new ToolStripMenuItem();
             MainMenu.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
-            groupBox1.SuspendLayout();
             gbStammdaten.SuspendLayout();
+            groupBox1.SuspendLayout();
             gbHeute.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -128,6 +133,26 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 34.57944F));
             tableLayoutPanel1.Size = new Size(1006, 642);
             tableLayoutPanel1.TabIndex = 1;
+            // 
+            // gbStammdaten
+            // 
+            gbStammdaten.Controls.Add(groupBox1);
+            gbStammdaten.Controls.Add(textBox1);
+            gbStammdaten.Controls.Add(gbHeute);
+            gbStammdaten.Controls.Add(label7);
+            gbStammdaten.Controls.Add(label5);
+            gbStammdaten.Controls.Add(cbFlightNumberLock);
+            gbStammdaten.Controls.Add(comboBox1);
+            gbStammdaten.Controls.Add(label6);
+            gbStammdaten.Dock = DockStyle.Fill;
+            gbStammdaten.Location = new Point(4, 4);
+            gbStammdaten.Margin = new Padding(4);
+            gbStammdaten.Name = "gbStammdaten";
+            gbStammdaten.Padding = new Padding(4);
+            gbStammdaten.Size = new Size(327, 263);
+            gbStammdaten.TabIndex = 0;
+            gbStammdaten.TabStop = false;
+            gbStammdaten.Text = "Rootdata";
             // 
             // groupBox1
             // 
@@ -201,25 +226,13 @@
             label4.TabIndex = 2;
             label4.Text = "-->";
             // 
-            // gbStammdaten
+            // textBox1
             // 
-            gbStammdaten.Controls.Add(groupBox1);
-            gbStammdaten.Controls.Add(textBox1);
-            gbStammdaten.Controls.Add(gbHeute);
-            gbStammdaten.Controls.Add(label7);
-            gbStammdaten.Controls.Add(label5);
-            gbStammdaten.Controls.Add(cbFlightNumberLock);
-            gbStammdaten.Controls.Add(comboBox1);
-            gbStammdaten.Controls.Add(label6);
-            gbStammdaten.Dock = DockStyle.Fill;
-            gbStammdaten.Location = new Point(4, 4);
-            gbStammdaten.Margin = new Padding(4);
-            gbStammdaten.Name = "gbStammdaten";
-            gbStammdaten.Padding = new Padding(4);
-            gbStammdaten.Size = new Size(327, 263);
-            gbStammdaten.TabIndex = 0;
-            gbStammdaten.TabStop = false;
-            gbStammdaten.Text = "Rootdata";
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
+            textBox1.Location = new Point(97, 137);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(113, 29);
+            textBox1.TabIndex = 11;
             // 
             // gbHeute
             // 
@@ -349,54 +362,6 @@
             label6.TabIndex = 8;
             label6.Text = "Flight-Number";
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(226, 140);
-            label7.Name = "label7";
-            label7.Size = new Size(30, 13);
-            label7.TabIndex = 10;
-            label7.Text = "Lock";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(13, 132);
-            label5.Margin = new Padding(4, 0, 4, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(55, 21);
-            label5.TabIndex = 6;
-            label5.Text = "Airline";
-            // 
-            // cbFlightNumberLock
-            // 
-            cbFlightNumberLock.AutoSize = true;
-            cbFlightNumberLock.Location = new Point(234, 156);
-            cbFlightNumberLock.Name = "cbFlightNumberLock";
-            cbFlightNumberLock.Size = new Size(15, 14);
-            cbFlightNumberLock.TabIndex = 9;
-            cbFlightNumberLock.TextAlign = ContentAlignment.MiddleCenter;
-            cbFlightNumberLock.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(13, 156);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(67, 29);
-            comboBox1.TabIndex = 7;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(107, 132);
-            label6.Margin = new Padding(4, 0, 4, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(113, 21);
-            label6.TabIndex = 8;
-            label6.Text = "Flight-Number";
-            // 
             // StatusBar
             // 
             StatusBar.ImageScalingSize = new Size(24, 24);
@@ -412,6 +377,53 @@
             imageList1.ColorDepth = ColorDepth.Depth32Bit;
             imageList1.ImageSize = new Size(16, 16);
             imageList1.TransparentColor = Color.Transparent;
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Dock = DockStyle.Top;
+            tabControl1.Location = new Point(0, 27);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(1006, 551);
+            tabControl1.TabIndex = 3;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(tableLayoutPanel1);
+            tabPage1.Location = new Point(4, 30);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(998, 517);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Flightdata";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(998, 523);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Location = new Point(4, 580);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(998, 64);
+            groupBox2.TabIndex = 4;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Status";
+            // 
+            // updateFromFileToolStripMenuItem
+            // 
+            updateFromFileToolStripMenuItem.Name = "updateFromFileToolStripMenuItem";
+            updateFromFileToolStripMenuItem.Size = new Size(180, 22);
+            updateFromFileToolStripMenuItem.Text = "update from File";
             // 
             // FrmMain
             // 
@@ -430,10 +442,10 @@
             MainMenu.ResumeLayout(false);
             MainMenu.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             gbStammdaten.ResumeLayout(false);
             gbStammdaten.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             gbHeute.ResumeLayout(false);
             gbHeute.PerformLayout();
             tabControl1.ResumeLayout(false);
@@ -473,5 +485,11 @@
         private ComboBox comboBox1;
         private Label label9;
         private Label label8;
+        private ToolStripMenuItem createToolStripMenuItem;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
+        private GroupBox groupBox2;
+        private ToolStripMenuItem updateFromFileToolStripMenuItem;
     }
 }
