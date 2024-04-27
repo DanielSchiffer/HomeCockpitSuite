@@ -36,6 +36,10 @@ public class MainModel : ViewModelBase
     {
         _timer.Stop();
     }
+    internal void NavdataUpdateFromFile()
+    {
+        throw new NotImplementedException();
+    }
     #endregion
     internal void OnTestWindow()
     {
@@ -87,7 +91,7 @@ public class MainModel : ViewModelBase
         _timer.Elapsed += Timer_Tick; // Add event handler
         _timer.Start(); // Start timer
     }
-
+    
     private void Timer_Tick(object? sender, ElapsedEventArgs e)
     {
         if (frm.IsHandleCreated)
@@ -101,4 +105,5 @@ public class MainModel : ViewModelBase
         }
     }
 
+    
 }

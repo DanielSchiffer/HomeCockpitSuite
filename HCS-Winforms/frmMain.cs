@@ -25,6 +25,8 @@ public partial class FrmMain : Form
 
         //Menu
         testfensterToolStripMenuItem.Click += (s, e) => vm.OnTestWindow();
+        updateFromFileToolStripMenuItem.Click += (s, e) => vm.NavdataUpdateFromFile();
+        
     }
 
     

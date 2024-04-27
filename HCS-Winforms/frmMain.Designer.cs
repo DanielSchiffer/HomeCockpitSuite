@@ -43,21 +43,22 @@
             maskedTextBox1 = new MaskedTextBox();
             label4 = new Label();
             gbStammdaten = new GroupBox();
-            gbHeute = new GroupBox();
             textBox1 = new TextBox();
-            label7 = new Label();
-            cbFlightNumberLock = new CheckBox();
-            label6 = new Label();
-            comboBox1 = new ComboBox();
-            label5 = new Label();
+            gbHeute = new GroupBox();
             tbUTC = new TextBox();
             tbLocalTime = new TextBox();
             tbDatum = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            label7 = new Label();
+            label5 = new Label();
+            cbFlightNumberLock = new CheckBox();
+            comboBox1 = new ComboBox();
+            label6 = new Label();
             StatusBar = new StatusStrip();
             imageList1 = new ImageList(components);
+            updateFromFileToolStripMenuItem = new ToolStripMenuItem();
             MainMenu.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -97,6 +98,7 @@
             // 
             // navDataToolStripMenuItem
             // 
+            navDataToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { updateFromFileToolStripMenuItem });
             navDataToolStripMenuItem.Name = "navDataToolStripMenuItem";
             navDataToolStripMenuItem.Size = new Size(69, 19);
             navDataToolStripMenuItem.Text = "Nav-Data";
@@ -211,6 +213,14 @@
             gbStammdaten.TabStop = false;
             gbStammdaten.Text = "Stammdaten";
             // 
+            // textBox1
+            // 
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
+            textBox1.Location = new Point(107, 156);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(113, 29);
+            textBox1.TabIndex = 11;
+            // 
             // gbHeute
             // 
             gbHeute.Controls.Add(tbUTC);
@@ -228,62 +238,6 @@
             gbHeute.TabIndex = 0;
             gbHeute.TabStop = false;
             gbHeute.Text = "Today";
-            // 
-            // textBox1
-            // 
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Location = new Point(107, 156);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(113, 29);
-            textBox1.TabIndex = 11;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(226, 140);
-            label7.Name = "label7";
-            label7.Size = new Size(30, 13);
-            label7.TabIndex = 10;
-            label7.Text = "Lock";
-            // 
-            // cbFlightNumberLock
-            // 
-            cbFlightNumberLock.AutoSize = true;
-            cbFlightNumberLock.Location = new Point(234, 156);
-            cbFlightNumberLock.Name = "cbFlightNumberLock";
-            cbFlightNumberLock.Size = new Size(15, 14);
-            cbFlightNumberLock.TabIndex = 9;
-            cbFlightNumberLock.TextAlign = ContentAlignment.MiddleCenter;
-            cbFlightNumberLock.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(107, 132);
-            label6.Margin = new Padding(4, 0, 4, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(113, 21);
-            label6.TabIndex = 8;
-            label6.Text = "Flight-Number";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(13, 156);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(67, 29);
-            comboBox1.TabIndex = 7;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(13, 132);
-            label5.Margin = new Padding(4, 0, 4, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(55, 21);
-            label5.TabIndex = 6;
-            label5.Text = "Airline";
             // 
             // tbUTC
             // 
@@ -347,6 +301,54 @@
             label1.TabIndex = 0;
             label1.Text = "Datum";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(226, 140);
+            label7.Name = "label7";
+            label7.Size = new Size(30, 13);
+            label7.TabIndex = 10;
+            label7.Text = "Lock";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(13, 132);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(55, 21);
+            label5.TabIndex = 6;
+            label5.Text = "Airline";
+            // 
+            // cbFlightNumberLock
+            // 
+            cbFlightNumberLock.AutoSize = true;
+            cbFlightNumberLock.Location = new Point(234, 156);
+            cbFlightNumberLock.Name = "cbFlightNumberLock";
+            cbFlightNumberLock.Size = new Size(15, 14);
+            cbFlightNumberLock.TabIndex = 9;
+            cbFlightNumberLock.TextAlign = ContentAlignment.MiddleCenter;
+            cbFlightNumberLock.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(13, 156);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(67, 29);
+            comboBox1.TabIndex = 7;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(107, 132);
+            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(113, 21);
+            label6.TabIndex = 8;
+            label6.Text = "Flight-Number";
+            // 
             // StatusBar
             // 
             StatusBar.ImageScalingSize = new Size(24, 24);
@@ -362,6 +364,12 @@
             imageList1.ColorDepth = ColorDepth.Depth32Bit;
             imageList1.ImageSize = new Size(16, 16);
             imageList1.TransparentColor = Color.Transparent;
+            // 
+            // updateFromFileToolStripMenuItem
+            // 
+            updateFromFileToolStripMenuItem.Name = "updateFromFileToolStripMenuItem";
+            updateFromFileToolStripMenuItem.Size = new Size(180, 22);
+            updateFromFileToolStripMenuItem.Text = "Update from File";
             // 
             // FrmMain
             // 
@@ -420,5 +428,6 @@
         private ComboBox comboBox1;
         private Label label9;
         private Label label8;
+        private ToolStripMenuItem updateFromFileToolStripMenuItem;
     }
 }
