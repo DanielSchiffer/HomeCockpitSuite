@@ -17,7 +17,7 @@
 
         public string? getGueltigBisFromFile()
         {
-            string result = cycleInfo.getGueltigBis();
+            string result = cycleInfo.GetGueltigBis();
             return result;
         }
 

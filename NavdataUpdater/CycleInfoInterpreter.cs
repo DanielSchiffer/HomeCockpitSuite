@@ -19,14 +19,14 @@ public class CycleInfoInterpreter
         cycleText = navDataIo.GetTextFromCycleInfo();
     }
 
-    internal string GetAirVersion()
+    public string GetAirVersion()
     {
         var line = cycleText.Find(x => x.Contains("AIRAC cycle"));
         var version = line?.Split(new[] { ":" }, StringSplitOptions.None)?[1]?.Trim();
         return version is null ? "-" :version;
     }
 
-    internal string getGueltigBis()
+    public string GetGueltigBis()
     {
         var line = cycleText.Find(x => x.Contains("Valid "));
         var wert = line?.Split(new[] { ":" }, StringSplitOptions.None)[1];
@@ -37,7 +37,7 @@ public class CycleInfoInterpreter
 
     }
 
-    internal string GetGueltigVon()
+    public string GetGueltigVon()
     {
         var line = cycleText.Find(x => x.Contains("Valid "));
         var wert = line?.Split(new[] { ":" }, StringSplitOptions.None)[1];
