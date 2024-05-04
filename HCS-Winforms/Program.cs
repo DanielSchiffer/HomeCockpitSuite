@@ -44,6 +44,7 @@ internal static class Program
         serviceCollection.AddScoped<MainModel>();
         serviceCollection.AddScoped<NavdataUpdateModel>();
         serviceCollection.AddScoped<NavDataIo>();
+        serviceCollection.AddScoped<SettingsModel>();
     }
 
     public class Starter

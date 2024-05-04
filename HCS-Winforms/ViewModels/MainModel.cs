@@ -20,13 +20,15 @@ public class MainModel : ViewModelBase
     private string _uhrzeit = String.Empty;
     private string _utc = String.Empty;
     private NavdataUpdateModel _vmNavdataUpdate;
+    private SettingsModel _vmSettings;
 
-    public MainModel(IFlightSimInterface flightSim, NavdataUpdateModel vmNavdataUpdate)
+    public MainModel(IFlightSimInterface flightSim, NavdataUpdateModel vmNavdataUpdate, SettingsModel vmSettings)
     {
         _flightsim = flightSim;
         _timer = new Timer();
         frm = new FrmMain(this);
         _vmNavdataUpdate = vmNavdataUpdate;
+        _vmSettings = vmSettings;
     }
     #region Events
     public void Show()
@@ -112,5 +114,12 @@ public class MainModel : ViewModelBase
     internal void OnCreate()
     {
         throw new NotImplementedException();
+    }
+
+    internal void OnSettings()
+    {
+        frmSettings frm = new(_vmSettings);
+        frm.ShowDialog();
+
     }
 }

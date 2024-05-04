@@ -59,12 +59,13 @@
             comboBox1 = new ComboBox();
             label6 = new Label();
             StatusBar = new StatusStrip();
+            tsslAirac = new ToolStripStatusLabel();
             imageList1 = new ImageList(components);
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
             groupBox2 = new GroupBox();
-            tsslAirac = new ToolStripStatusLabel();
+            settingsToolStripMenuItem = new ToolStripMenuItem();
             MainMenu.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             gbStammdaten.SuspendLayout();
@@ -78,7 +79,7 @@
             // MainMenu
             // 
             MainMenu.ImageScalingSize = new Size(24, 24);
-            MainMenu.Items.AddRange(new ToolStripItem[] { testfensterToolStripMenuItem, flightToolStripMenuItem, simbriefToolStripMenuItem, navDataToolStripMenuItem });
+            MainMenu.Items.AddRange(new ToolStripItem[] { testfensterToolStripMenuItem, flightToolStripMenuItem, simbriefToolStripMenuItem, navDataToolStripMenuItem, settingsToolStripMenuItem });
             MainMenu.Location = new Point(0, 0);
             MainMenu.Name = "MainMenu";
             MainMenu.Padding = new Padding(12, 4, 0, 4);
@@ -122,7 +123,7 @@
             // updateNavDataStripMenuItem
             // 
             updateNavDataStripMenuItem.Name = "updateNavDataStripMenuItem";
-            updateNavDataStripMenuItem.Size = new Size(180, 22);
+            updateNavDataStripMenuItem.Size = new Size(111, 22);
             updateNavDataStripMenuItem.Text = "update";
             // 
             // tableLayoutPanel1
@@ -381,6 +382,12 @@
             StatusBar.TabIndex = 2;
             StatusBar.Text = "statusStrip1";
             // 
+            // tsslAirac
+            // 
+            tsslAirac.Name = "tsslAirac";
+            tsslAirac.Size = new Size(69, 17);
+            tsslAirac.Text = "Airac: 22_04";
+            // 
             // imageList1
             // 
             imageList1.ColorDepth = ColorDepth.Depth32Bit;
@@ -428,11 +435,11 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Status";
             // 
-            // tsslAirac
+            // settingsToolStripMenuItem
             // 
-            tsslAirac.Name = "tsslAirac";
-            tsslAirac.Size = new Size(69, 17);
-            tsslAirac.Text = "Airac: 22_04";
+            settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            settingsToolStripMenuItem.Size = new Size(61, 19);
+            settingsToolStripMenuItem.Text = "Settings";
             // 
             // FrmMain
             // 
@@ -504,5 +511,6 @@
         private GroupBox groupBox2;
         private ToolStripMenuItem updateNavDataStripMenuItem;
         private ToolStripStatusLabel tsslAirac;
+        private ToolStripMenuItem settingsToolStripMenuItem;
     }
 }
