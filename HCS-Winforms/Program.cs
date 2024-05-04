@@ -1,10 +1,11 @@
 using Microsoft.Extensions.DependencyInjection;
 using DanielSchiffer.Contracts.FlugplanungContract;
-using DanielSchiffer.HCS.Domain.SimBriefEnhancer;
 using System.CodeDom.Compiler;
 using DanielSchiffer.HCS.Contracts.CockpitContract;
 using CockpitEnhancerClassic;
 using DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels;
+using DanielSchiffer.HCS.Logic.WindowsIo;
+using System.Configuration;
 namespace DanielSchiffer.HCS.UI.HCS_Winforms;
 
 internal static class Program
@@ -23,23 +24,26 @@ internal static class Program
         //Servicecollection
         var serviceCollection = new ServiceCollection();
 
+
         ConfigureServices(serviceCollection);
-       
+
         var serviceProvider = serviceCollection.BuildServiceProvider();
-        
+
         // Execute the Starter class if it is available in the service provider
         if (serviceProvider.GetService<Starter>() is Starter starter)
         {
             starter.Execute();
         }
-        
+
     }
 
     private static void ConfigureServices(ServiceCollection serviceCollection)
     {
-        serviceCollection.AddSingleton<Starter,Starter>();
+        serviceCollection.AddSingleton<Starter, Starter>();
         serviceCollection.AddScoped<IFlightSimInterface, Flightsim>();
         serviceCollection.AddScoped<MainModel>();
+        serviceCollection.AddScoped<NavdataUpdateModel>();
+        serviceCollection.AddScoped<NavDataIo>();
     }
 
     public class Starter
@@ -61,7 +65,7 @@ internal static class Program
         /// </summary>
         public void Execute()
         {
-            _Model_frmMain.Show(); 
+            _Model_frmMain.Show();
             Application.Run();
         }
     }

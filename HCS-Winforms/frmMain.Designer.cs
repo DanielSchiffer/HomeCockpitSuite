@@ -64,11 +64,13 @@
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
             groupBox2 = new GroupBox();
+            tsslAirac = new ToolStripStatusLabel();
             MainMenu.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             gbStammdaten.SuspendLayout();
             groupBox1.SuspendLayout();
             gbHeute.SuspendLayout();
+            StatusBar.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             SuspendLayout();
@@ -117,9 +119,9 @@
             navDataToolStripMenuItem.Size = new Size(69, 19);
             navDataToolStripMenuItem.Text = "Nav-Data";
             // 
-            // updateFromFileToolStripMenuItem
+            // updateNavDataStripMenuItem
             // 
-            updateNavDataStripMenuItem.Name = "updateFromFileToolStripMenuItem";
+            updateNavDataStripMenuItem.Name = "updateNavDataStripMenuItem";
             updateNavDataStripMenuItem.Size = new Size(180, 22);
             updateNavDataStripMenuItem.Text = "update";
             // 
@@ -371,6 +373,7 @@
             // StatusBar
             // 
             StatusBar.ImageScalingSize = new Size(24, 24);
+            StatusBar.Items.AddRange(new ToolStripItem[] { tsslAirac });
             StatusBar.Location = new Point(0, 647);
             StatusBar.Name = "StatusBar";
             StatusBar.Padding = new Padding(1, 0, 26, 0);
@@ -425,6 +428,12 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Status";
             // 
+            // tsslAirac
+            // 
+            tsslAirac.Name = "tsslAirac";
+            tsslAirac.Size = new Size(69, 17);
+            tsslAirac.Text = "Airac: 22_04";
+            // 
             // FrmMain
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
@@ -449,6 +458,8 @@
             groupBox1.PerformLayout();
             gbHeute.ResumeLayout(false);
             gbHeute.PerformLayout();
+            StatusBar.ResumeLayout(false);
+            StatusBar.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             ResumeLayout(false);
@@ -492,5 +503,6 @@
         private TabPage tabPage2;
         private GroupBox groupBox2;
         private ToolStripMenuItem updateNavDataStripMenuItem;
+        private ToolStripStatusLabel tsslAirac;
     }
 }

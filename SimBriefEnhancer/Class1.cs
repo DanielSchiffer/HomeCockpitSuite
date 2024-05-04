@@ -1,5 +1,5 @@
 ﻿using DanielSchiffer.Contracts.FlugplanungContract;
-namespace DanielSchiffer.HCS.Domain.SimBriefEnhancer;
+namespace DanielSchiffer.HCS.Logic.SimBriefEnhancer;
 
 public class SimBrief : IPlanung
 {

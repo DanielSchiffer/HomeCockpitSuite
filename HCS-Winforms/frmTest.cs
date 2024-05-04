@@ -21,7 +21,7 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms
             InitializeComponent();
             this.flightSim = flightSim;
             flightSim.LogEntryReceived += FlightSim_LogEntryReceived;
-                }
+        }
 
         private void FlightSim_LogEntryReceived(object? sender, string e)
         {

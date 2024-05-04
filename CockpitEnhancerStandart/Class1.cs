@@ -1,9 +1,9 @@
 ﻿using System;
 using CockpitEnhancerClassic;
 
-namespace CockpitEnhancerStandart
+namespace DanielSchiffer.HCS.Logic.CockpitEnhancer.Standart
 {
-    public class Class1 
+    public class Class1
     {
 
     }
