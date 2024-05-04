@@ -35,6 +35,7 @@
             createToolStripMenuItem = new ToolStripMenuItem();
             simbriefToolStripMenuItem = new ToolStripMenuItem();
             navDataToolStripMenuItem = new ToolStripMenuItem();
+            updateNavDataStripMenuItem = new ToolStripMenuItem();
             tableLayoutPanel1 = new TableLayoutPanel();
             gbStammdaten = new GroupBox();
             groupBox1 = new GroupBox();
@@ -63,7 +64,6 @@
             tabPage1 = new TabPage();
             tabPage2 = new TabPage();
             groupBox2 = new GroupBox();
-            updateFromFileToolStripMenuItem = new ToolStripMenuItem();
             MainMenu.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             gbStammdaten.SuspendLayout();
@@ -112,10 +112,16 @@
             // 
             // navDataToolStripMenuItem
             // 
-            navDataToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { updateFromFileToolStripMenuItem });
+            navDataToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { updateNavDataStripMenuItem });
             navDataToolStripMenuItem.Name = "navDataToolStripMenuItem";
             navDataToolStripMenuItem.Size = new Size(69, 19);
             navDataToolStripMenuItem.Text = "Nav-Data";
+            // 
+            // updateFromFileToolStripMenuItem
+            // 
+            updateNavDataStripMenuItem.Name = "updateFromFileToolStripMenuItem";
+            updateNavDataStripMenuItem.Size = new Size(180, 22);
+            updateNavDataStripMenuItem.Text = "update";
             // 
             // tableLayoutPanel1
             // 
@@ -419,12 +425,6 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Status";
             // 
-            // updateFromFileToolStripMenuItem
-            // 
-            updateFromFileToolStripMenuItem.Name = "updateFromFileToolStripMenuItem";
-            updateFromFileToolStripMenuItem.Size = new Size(180, 22);
-            updateFromFileToolStripMenuItem.Text = "update from File";
-            // 
             // FrmMain
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
@@ -439,6 +439,7 @@
             Margin = new Padding(5, 6, 5, 6);
             Name = "FrmMain";
             Text = "Form1";
+            Load += FrmMain_Load;
             MainMenu.ResumeLayout(false);
             MainMenu.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
@@ -490,6 +491,6 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private GroupBox groupBox2;
-        private ToolStripMenuItem updateFromFileToolStripMenuItem;
+        private ToolStripMenuItem updateNavDataStripMenuItem;
     }
 }
