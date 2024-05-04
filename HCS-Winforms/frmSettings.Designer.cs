@@ -31,14 +31,17 @@
             groupBox1 = new GroupBox();
             tbSimBriefUser = new TextBox();
             label1 = new Label();
+            bgAllgemein = new GroupBox();
+            cbEntwicklerModus = new CheckBox();
             groupBox1.SuspendLayout();
+            bgAllgemein.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(tbSimBriefUser);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(12, 12);
+            groupBox1.Location = new Point(12, 118);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(200, 117);
             groupBox1.TabIndex = 0;
@@ -61,17 +64,40 @@
             label1.TabIndex = 0;
             label1.Text = "User";
             // 
+            // bgAllgemein
+            // 
+            bgAllgemein.Controls.Add(cbEntwicklerModus);
+            bgAllgemein.Location = new Point(12, 12);
+            bgAllgemein.Name = "bgAllgemein";
+            bgAllgemein.Size = new Size(198, 100);
+            bgAllgemein.TabIndex = 1;
+            bgAllgemein.TabStop = false;
+            bgAllgemein.Text = "Allgemein";
+            // 
+            // cbEntwicklerModus
+            // 
+            cbEntwicklerModus.AutoSize = true;
+            cbEntwicklerModus.Location = new Point(6, 22);
+            cbEntwicklerModus.Name = "cbEntwicklerModus";
+            cbEntwicklerModus.Size = new Size(122, 19);
+            cbEntwicklerModus.TabIndex = 0;
+            cbEntwicklerModus.Text = "Entwickler-Modus";
+            cbEntwicklerModus.UseVisualStyleBackColor = true;
+            // 
             // frmSettings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(bgAllgemein);
             Controls.Add(groupBox1);
             Name = "frmSettings";
             StartPosition = FormStartPosition.CenterParent;
             Text = "frmSettings";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            bgAllgemein.ResumeLayout(false);
+            bgAllgemein.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -80,5 +106,7 @@
         private GroupBox groupBox1;
         private TextBox tbSimBriefUser;
         private Label label1;
+        private GroupBox bgAllgemein;
+        private CheckBox cbEntwicklerModus;
     }
 }

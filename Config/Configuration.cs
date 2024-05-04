@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DanielSchiffer.HCS.Logic.Settings
 {
-    public class Configuration
+    public class Configuration  
     {
         public bool EntwicklerModus { get; set; }
         public string? PilotsName { get;  set; }

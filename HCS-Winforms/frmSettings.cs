@@ -21,6 +21,7 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms
             this.vm = vm;
 
             tbSimBriefUser.DataBindings.Add(nameof(tbSimBriefUser.Text), vm, nameof(vm.SimBriefUser), false, DataSourceUpdateMode.OnPropertyChanged);
+            cbEntwicklerModus.DataBindings.Add(nameof(cbEntwicklerModus.Checked), vm, nameof(vm.EntwicklerModus), false, DataSourceUpdateMode.OnPropertyChanged);
         }
     }
 }

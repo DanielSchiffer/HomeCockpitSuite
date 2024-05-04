@@ -36,6 +36,20 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
             }
         }
 
+        public bool EntwicklerModus
+        {
+            get { return setting.configuration.EntwicklerModus; }
+            set
+            {
+                if (setting.configuration.EntwicklerModus != value)
+                {
+                    setting.configuration.EntwicklerModus = value;
+                    setting.SaveConfig();
+                    OnPropertyChanged();
+                }
+            }
+        }
+
 
 
         #endregion

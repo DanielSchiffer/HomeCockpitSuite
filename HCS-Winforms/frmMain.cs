@@ -28,6 +28,7 @@ public partial class FrmMain : Form
         updateNavDataStripMenuItem.Click += (s, e) => vm.NavdataUpdate();
         settingsToolStripMenuItem.Click += (s, e) => vm.OnSettings();
         createToolStripMenuItem.Click += (s, e) => vm.OnCreate();
+        FormClosed += (s, e) => vm.OnClosing();
     }
 
     private void FrmMain_Load(object sender, EventArgs e)

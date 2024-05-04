@@ -38,7 +38,10 @@ public class MainModel : ViewModelBase
     }
     public void OnClosing()
     {
+        frm.Hide();
         _timer.Stop();
+        Thread.Sleep(500);
+        Application.Exit();
     }
     internal void NavdataUpdate()
     {
@@ -46,12 +49,22 @@ public class MainModel : ViewModelBase
         frm.ShowDialog();
 
     }
-    #endregion
+    internal void OnCreate()
+    {
+        throw new NotImplementedException();
+    }
+    internal void OnSettings()
+    {
+        frmSettings frm = new(_vmSettings);
+        frm.ShowDialog();
+
+    }
     internal void OnTestWindow()
     {
         var f = new frmTest(_flightsim);
         f.Show();
     }
+    #endregion
     #region Propertys
     public string Datum
     {
@@ -111,15 +124,7 @@ public class MainModel : ViewModelBase
         }
     }
 
-    internal void OnCreate()
-    {
-        throw new NotImplementedException();
-    }
+   
 
-    internal void OnSettings()
-    {
-        frmSettings frm = new(_vmSettings);
-        frm.ShowDialog();
-
-    }
+   
 }
