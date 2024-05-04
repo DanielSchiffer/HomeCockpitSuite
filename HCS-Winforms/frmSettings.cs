@@ -19,6 +19,8 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms
         {
             InitializeComponent();
             this.vm = vm;
+
+            tbSimBriefUser.DataBindings.Add(nameof(tbSimBriefUser.Text), vm, nameof(vm.SimBriefUser), false, DataSourceUpdateMode.OnPropertyChanged);
         }
     }
 }

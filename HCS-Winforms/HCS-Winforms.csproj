@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CockpitContract\CockpitContract.csproj" />
     <ProjectReference Include="..\CockpitEnhancerClassic\CockpitEnhancer_Classic.csproj" />
+    <ProjectReference Include="..\Config\Setting.csproj" />
     <ProjectReference Include="..\FlugplanungContract\FlugplanungContract.csproj" />
     <ProjectReference Include="..\NavdataUpdater\NavdataUpdater.csproj" />
     <ProjectReference Include="..\SimBriefEnhancer\SimBriefEnhancer.csproj" />

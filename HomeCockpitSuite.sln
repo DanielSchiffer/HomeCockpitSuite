@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsIo", "WindowsIo\Wind
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Navigation", "Navigation\Navigation.csproj", "{0C644F22-D440-4DFC-AC08-DB244594BD70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Config", "Config\Config.csproj", "{68259C02-EBC3-4846-B5BA-0D37F5CA9C54}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Setting", "Config\Setting.csproj", "{68259C02-EBC3-4846-B5BA-0D37F5CA9C54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

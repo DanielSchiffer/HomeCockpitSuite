@@ -6,6 +6,7 @@ using CockpitEnhancerClassic;
 using DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels;
 using DanielSchiffer.HCS.Logic.WindowsIo;
 using System.Configuration;
+using DanielSchiffer.HCS.Logic.Settings;
 namespace DanielSchiffer.HCS.UI.HCS_Winforms;
 
 internal static class Program
@@ -45,6 +46,7 @@ internal static class Program
         serviceCollection.AddScoped<NavdataUpdateModel>();
         serviceCollection.AddScoped<NavDataIo>();
         serviceCollection.AddScoped<SettingsModel>();
+        serviceCollection.AddScoped<SettingsManager>();
     }
 
     public class Starter
