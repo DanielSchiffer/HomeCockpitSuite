@@ -3,7 +3,12 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <RootNamespace>DanielSchiffer.HCS.Logic.NavdataUpdater</RootNamespace>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WindowsIo\WindowsIo.csproj" />
+  </ItemGroup>
 
 </Project>

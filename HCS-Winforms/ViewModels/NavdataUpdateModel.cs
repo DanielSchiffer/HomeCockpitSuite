@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DanielSchiffer.HCS.Logic.NavdataUpdater;
 using DanielSchiffer.HCS.Logic.WindowsIo;
 
 namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
@@ -10,27 +11,29 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
     public class NavdataUpdateModel : ViewModelBase
     {
         private readonly NavDataIo winIo;
+        private readonly Updater updater;
 
-        public NavdataUpdateModel(NavDataIo io)
+        public NavdataUpdateModel(NavDataIo io, Updater updater)
         {
-            initialisiereFenster();
             this.winIo = io;
+            this.updater = updater;
+            initialisiereFenster();
         }
 
         public void OnLoad()
         {
-            string pfad = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "HCS");
-            winIo.createFSbuildImportFolder(pfad);
+            
+            winIo.createFSbuildImportFolder();
         }
 
         private void initialisiereFenster()
         {
-            airac = "-";
+            airac = updater.GetAirVersionFromFile();
             gesamtFortschritt = 0;
             workItemFortschritt = 0;
             workItemText = "";
-            gueltigVon = "-";
-            gueltigBis = "-";
+            gueltigVon = updater.GetGueltigVonFromFile();
+            gueltigBis = updater.getGueltigBisFromFile();
 
         }
 

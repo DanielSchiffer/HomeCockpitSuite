@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace DanielSchiffer.HCS.Logic.Settings
+namespace DanielSchiffer.HCS.Logic.Setting
 {
     public class SettingsManager
     {
@@ -23,9 +23,7 @@ namespace DanielSchiffer.HCS.Logic.Settings
         {
 
             if (configuration == null)
-            {
                 Load();
-            }
             return configuration is null ? CreateDefaultConfig() : configuration;
         }
 
@@ -33,14 +31,12 @@ namespace DanielSchiffer.HCS.Logic.Settings
         {
             string pfad = GetConfigPath();
             if (!Directory.Exists(pfad))
-            {
                 Directory.CreateDirectory(pfad);
-            }
         }
 
         public string GetConfigPath()
         {
-            return Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "HCS", "Configuration");
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "HCS", "Configuration");
         }
         public void SaveConfig()
         {
@@ -64,18 +60,14 @@ namespace DanielSchiffer.HCS.Logic.Settings
         {
             string filePath = GetConfigFile();
             if (!File.Exists(filePath))
-            {
                 configuration = CreateDefaultConfig();
-            }
             else
             {
                 string json = File.ReadAllText(filePath);
                 var config = JsonConvert.DeserializeObject<Configuration>(json);
 
                 if (config == null)
-                {
                     configuration = CreateDefaultConfig();
-                }
                 else
                 {
                     configuration = config;

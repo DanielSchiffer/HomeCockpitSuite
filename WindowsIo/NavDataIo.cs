@@ -3,11 +3,15 @@ namespace DanielSchiffer.HCS.Logic.WindowsIo
 {
     public class NavDataIo
     {
-        public bool createFSbuildImportFolder(string ort)
+        public string GetFsBuildImportFolder()
+        {
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "HCS", "FSbuildImport");
+        }
+        public bool createFSbuildImportFolder()
         {
             bool IsErstellt = false;
 
-            ort = ort + "\\FSbuildImport";
+           var ort = GetFsBuildImportFolder();
             if (!Directory.Exists(ort))
             {
                 try
@@ -25,6 +29,16 @@ namespace DanielSchiffer.HCS.Logic.WindowsIo
             }
 
             return IsErstellt;
+        }
+        public List<string> GetTextFromCycleInfo()
+        {
+            string pfad = Path.Combine(GetFsBuildImportFolder(), "cycle_info.txt");
+
+            if (!File.Exists(pfad))
+                return new List<string>();
+
+            return File.ReadAllLines(pfad).ToList();
+            
         }
     }
 }

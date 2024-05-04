@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DanielSchiffer.HCS.Logic.Settings
+namespace DanielSchiffer.HCS.Logic.Setting
 {
-    public class Configuration  
+    public class Configuration
     {
         public bool EntwicklerModus { get; set; }
-        public string? PilotsName { get;  set; }
-        public string? SimBriefUser { get;  set; }
+        public string? PilotsName { get; set; }
+        public string? SimBriefUser { get; set; }
     }
 }

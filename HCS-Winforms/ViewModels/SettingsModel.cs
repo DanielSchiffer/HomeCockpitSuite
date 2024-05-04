@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DanielSchiffer.HCS.Logic.Settings;
+using DanielSchiffer.HCS.Logic.Setting;
 
 namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 {
