@@ -8,6 +8,7 @@ using DanielSchiffer.HCS.Logic.WindowsIo;
 using System.Configuration;
 using DanielSchiffer.HCS.Logic.Setting;
 using DanielSchiffer.HCS.Logic.NavdataUpdater;
+using DanielSchiffer.HCS.Logic.NavdataUpdater.Parsing;
 namespace DanielSchiffer.HCS.UI.HCS_Winforms;
 
 internal static class Program
@@ -50,6 +51,7 @@ internal static class Program
         serviceCollection.AddScoped<SettingsModel>();
         serviceCollection.AddScoped<SettingsManager>();
         serviceCollection.AddScoped<Updater>();
+        serviceCollection.AddScoped<FsBuildPaser>();
     }
 
     public class Starter

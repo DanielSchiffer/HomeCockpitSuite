@@ -28,12 +28,12 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 
         private void initialisiereFenster()
         {
-            airac = updater.GetAirVersionFromFile();
-            gesamtFortschritt = 0;
-            workItemFortschritt = 0;
-            workItemText = "";
-            gueltigVon = updater.GetGueltigVonFromFile();
-            gueltigBis = updater.getGueltigBisFromFile();
+            Airac = updater.GetAirVersionFromFile();
+            _gesamtFortschritt = 0;
+            _workItemFortschritt = 0;
+            _workItemText = "";
+            GueltigVon = updater.GetGueltigVonFromFile();
+            GueltigBis = updater.getGueltigBisFromFile();
 
         }
 
@@ -45,26 +45,26 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 
         internal void Erstellen()
         {
-            throw new NotImplementedException();
+            updater.startUpdate();
         }
 
         #region Propertys
-        private string? airac;
-        private int gesamtFortschritt;
-        private int workItemFortschritt  ;
-        private string? workItemText;
-        private string? gueltigVon;
-        private string? gueltigBis;
-        private bool navdataErstellbar;
+        private string? _airac;
+        private int _gesamtFortschritt;
+        private int _workItemFortschritt  ;
+        private string? _workItemText;
+        private string? _gueltigVon;
+        private string? _gueltigBis;
+        private bool _navdataErstellbar;
 
         public int GesamtFortschritt
         {
-            get { return gesamtFortschritt; }
+            get { return _gesamtFortschritt; }
             set
             {
-                if (gesamtFortschritt != value)
+                if (_gesamtFortschritt != value)
                 {
-                    gesamtFortschritt = value;
+                    _gesamtFortschritt = value;
                     OnPropertyChanged();
                 }
             }
@@ -73,12 +73,12 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 
         public int WorkItemFortschritt
         {
-            get { return workItemFortschritt; }
+            get { return _workItemFortschritt; }
             set
             {
-                if (workItemFortschritt != value)
+                if (_workItemFortschritt != value)
                 {
-                    workItemFortschritt = value;
+                    _workItemFortschritt = value;
                     OnPropertyChanged();
                 }
             }
@@ -86,12 +86,12 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 
         public string WorkItemText
         {
-            get { return workItemText is null ? "-" : workItemText; }
+            get { return _workItemText is null ? "-" : _workItemText; }
             set
             {
-                if (workItemText != value)
+                if (_workItemText != value)
                 {
-                    workItemText = value;
+                    _workItemText = value;
                     OnPropertyChanged();
                 }
             }
@@ -100,25 +100,34 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 
         public string Airac
         {
-            get { return airac is null ? "-" : airac; }
+            get { return _airac is null ? "-" : _airac; }
             set
             {
-                if (airac != value)
+                if (_airac != value)
                 {
-                    airac = value;
+                    _airac = value;
                     OnPropertyChanged();
+                
+                }
+                if (_airac != "-")
+                {
+                    NavdataErstellbar = true;
+                }
+                else
+                {
+                    NavdataErstellbar = false;
                 }
             }
         }
 
         public string GueltigVon
         {
-            get { return gueltigVon is null ? "-" : gueltigVon; }
+            get { return _gueltigVon is null ? "-" : _gueltigVon; }
             set
             {
-                if (gueltigVon != value)
+                if (_gueltigVon != value)
                 {
-                    gueltigVon = value;
+                    _gueltigVon = value;
                     OnPropertyChanged();
 
                 }
@@ -128,12 +137,12 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 
         public string GueltigBis
         {
-            get { return gueltigBis is null ? "" : gueltigBis; }
+            get { return _gueltigBis is null ? "" : _gueltigBis; }
             set
             {
-                if (gueltigBis != value)
+                if (_gueltigBis != value)
                 {
-                    gueltigBis = value;
+                    _gueltigBis = value;
                     OnPropertyChanged();
                 }
             }
@@ -141,13 +150,13 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 
         public bool NavdataErstellbar
         {
-            get { return navdataErstellbar; }
+            get { return _navdataErstellbar; }
 
             set
             {
-                if (navdataErstellbar != value)
+                if (_navdataErstellbar != value)
                 {
-                    navdataErstellbar = value;
+                    _navdataErstellbar = value;
                     OnPropertyChanged();
                 }
             }
