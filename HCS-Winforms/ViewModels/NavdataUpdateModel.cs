@@ -31,10 +31,10 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 
         private void InitializeWindow()
         {
-            _gesamtFortschritt = 0;
-            _workItemFortschritt = 0;
-            _workItemText = "";
-            
+            gesamtFortschritt = 0;
+            workItemFortschritt = 0;
+            workItemText = "";
+
         }
 
         internal void OnClose()
@@ -48,22 +48,22 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
         }
 
         #region Eigenschaften
-        private string airac = "-";
+        private string _airac = "-";
         private int gesamtFortschritt;
         private int workItemFortschritt;
         private string workItemText = "";
-        private string gueltigVon = "-";
-        private string gueltigBis = "";
-        private bool navdataErstellbar;
+        private string _gueltigVon = "-";
+        private string _gueltigBis = "";
+        private bool _navdataErstellbar;
 
         public int GesamtFortschritt
         {
             get => gesamtFortschritt;
             set
             {
-                if (_gesamtFortschritt != value)
+                if (gesamtFortschritt != value)
                 {
-                    _gesamtFortschritt = value;
+                    gesamtFortschritt = value;
                     OnPropertyChanged();
                 }
             }
@@ -74,9 +74,9 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
             get => workItemFortschritt;
             set
             {
-                if (_workItemFortschritt != value)
+                if (workItemFortschritt != value)
                 {
-                    _workItemFortschritt = value;
+                    workItemFortschritt = value;
                     OnPropertyChanged();
                 }
             }
@@ -87,9 +87,9 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
             get => string.IsNullOrEmpty(workItemText) ? "-" : workItemText;
             set
             {
-                if (_workItemText != value)
+                if (workItemText != value)
                 {
-                    _workItemText = value;
+                    workItemText = value;
                     OnPropertyChanged();
                 }
             }
@@ -97,14 +97,14 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 
         public string Airac
         {
-            get => string.IsNullOrEmpty(airac) ? "-" : airac;
+            get => string.IsNullOrEmpty(_airac) ? "-" : _airac;
             set
             {
                 if (_airac != value)
                 {
                     _airac = value;
                     OnPropertyChanged();
-                
+
                 }
                 if (_airac != "-")
                 {
@@ -119,7 +119,7 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 
         public string GueltigVon
         {
-            get => string.IsNullOrEmpty(gueltigVon) ? "-" : gueltigVon;
+            get => string.IsNullOrEmpty(_gueltigVon) ? "-" : _gueltigVon;
             set
             {
                 if (_gueltigVon != value)
@@ -132,7 +132,7 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 
         public string GueltigBis
         {
-            get => string.IsNullOrEmpty(gueltigBis) ? "" : gueltigBis;
+            get => string.IsNullOrEmpty(_gueltigBis) ? "" : _gueltigBis;
             set
             {
                 if (_gueltigBis != value)
@@ -145,7 +145,7 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 
         public bool NavdataErstellbar
         {
-            get => navdataErstellbar;
+            get => _navdataErstellbar;
             set
             {
                 if (_navdataErstellbar != value)

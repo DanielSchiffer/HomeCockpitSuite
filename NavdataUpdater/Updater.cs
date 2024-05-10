@@ -6,10 +6,10 @@ namespace DanielSchiffer.HCS.Logic.NavdataUpdater
 {
     public class Updater
     {
-        private CycleInfoInterpreter cycleInfo;
+        private ICycleInfoInterpreter cycleInfo;
         private readonly FsBuildPaser paser;
 
-        public Updater(CycleInfoInterpreter cycle,FsBuildPaser paser)
+        public Updater(ICycleInfoInterpreter cycle,FsBuildPaser paser)
         {
             cycleInfo = cycle;
             this.paser = paser;

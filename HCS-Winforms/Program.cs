@@ -46,11 +46,11 @@ internal static class Program
     {
         serviceCollection.AddSingleton<Starter, Starter>();
         serviceCollection.AddScoped<IFlightSimInterface, Flightsim>();
+        serviceCollection.AddScoped<INavDataIo,NavDataIo>();
         serviceCollection.AddScoped<ICycleInfoInterpreter,CycleInfoInterpreter > ();
         serviceCollection.AddScoped<Updater>();
         serviceCollection.AddScoped<MainModel>();
         serviceCollection.AddScoped<NavdataUpdateModel>();
-        serviceCollection.AddScoped<INavDataIo,NavDataIo>();
         serviceCollection.AddScoped<SettingsModel>();
         serviceCollection.AddScoped<SettingsManager>();
         serviceCollection.AddScoped<Updater>();
