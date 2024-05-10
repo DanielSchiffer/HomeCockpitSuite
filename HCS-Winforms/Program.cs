@@ -8,6 +8,8 @@ using DanielSchiffer.HCS.Logic.WindowsIo;
 using System.Configuration;
 using DanielSchiffer.HCS.Logic.Setting;
 using DanielSchiffer.HCS.Logic.NavdataUpdater;
+using DanielSchiffer.HCS.Contracts.NavdataUpdaterContract;
+using DanielSchiffer.HCS.Contracts.IOSIO;
 namespace DanielSchiffer.HCS.UI.HCS_Winforms;
 
 internal static class Program
@@ -43,13 +45,13 @@ internal static class Program
     {
         serviceCollection.AddSingleton<Starter, Starter>();
         serviceCollection.AddScoped<IFlightSimInterface, Flightsim>();
-        serviceCollection.AddScoped<CycleInfoInterpreter>();
+        serviceCollection.AddScoped<ICycleInfoInterpreter,CycleInfoInterpreter > ();
+        serviceCollection.AddScoped<Updater>();
         serviceCollection.AddScoped<MainModel>();
         serviceCollection.AddScoped<NavdataUpdateModel>();
-        serviceCollection.AddScoped<NavDataIo>();
+        serviceCollection.AddScoped<INavDataIo,NavDataIo>();
         serviceCollection.AddScoped<SettingsModel>();
         serviceCollection.AddScoped<SettingsManager>();
-        serviceCollection.AddScoped<Updater>();
     }
 
     public class Starter

@@ -1,29 +1,41 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Collections.Generic;
-using DanielSchiffer.HCS.Logic.WindowsIo;
+using DanielSchiffer.HCS.Contracts.IOSIO;
+using DanielSchiffer.HCS.Logic.NavdataUpdater;
 
-namespace DanielSchiffer.HCS.Logic.NavdataUpdater.Tests
+namespace DanielSchiffer.HCS.Logic.Tests.NavdataUpdater
 {
     [TestClass]
     public class CycleInfoInterpreterTests
     {
+        private Mock<INavDataIo> mockNavDataIo;
         private CycleInfoInterpreter cycleInfoInterpreter;
-        private Mock<NavDataIo> navDataIoMock;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            navDataIoMock = new Mock<NavDataIo>();
-            cycleInfoInterpreter = new CycleInfoInterpreter(navDataIoMock.Object);
+            mockNavDataIo = new Mock<INavDataIo>();
+            cycleInfoInterpreter = new CycleInfoInterpreter(mockNavDataIo.Object);
+            // Pfad zur Datei 'cycle_info.txt' definieren.
+            var importFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "HCS", "FsBuildImport");
+            var filePath = Path.Combine(importFolder, "cycle_info.txt");
+
+            var cycleText = new List<string> { "AIRAC cycle: 2101" };
+
+            // Das Verhalten von GetFsBuildImportFolder mocken, um den definierten Importordner zurückzugeben.
+            mockNavDataIo.Setup(x => x.GetFsBuildImportFolder()).Returns(importFolder);
+
+            // Dateiexistenz und Leseverhalten mocken
+            mockNavDataIo.Setup(x => x.GetTextFromCycleInfo()).Returns(cycleText);
         }
 
         [TestMethod]
-        public void GetAirVersion_Should_Return_Version_When_Line_Contains_AIRAC_Cycle()
+        public void GetAirVersion_ShouldReturnVersion_WhenLineContainsAiracCycle()
         {
             // Arrange
             var cycleText = new List<string> { "AIRAC cycle: 2101" };
-            navDataIoMock.Setup(x => x.GetTextFromCycleInfo()).Returns(cycleText);
+            mockNavDataIo.Setup(x => x.GetTextFromCycleInfo()).Returns(cycleText);
 
             // Act
             var result = cycleInfoInterpreter.GetAirVersion();
@@ -33,11 +45,11 @@ namespace DanielSchiffer.HCS.Logic.NavdataUpdater.Tests
         }
 
         [TestMethod]
-        public void GetAirVersion_Should_Return_Dash_When_Line_Does_Not_Contain_AIRAC_Cycle()
+        public void GetAirVersion_ShouldReturnDash_WhenLineDoesNotContainAiracCycle()
         {
             // Arrange
             var cycleText = new List<string> { "Some other line" };
-            navDataIoMock.Setup(x => x.GetTextFromCycleInfo()).Returns(cycleText);
+            mockNavDataIo.Setup(x => x.GetTextFromCycleInfo()).Returns(cycleText);
 
             // Act
             var result = cycleInfoInterpreter.GetAirVersion();
@@ -47,11 +59,11 @@ namespace DanielSchiffer.HCS.Logic.NavdataUpdater.Tests
         }
 
         [TestMethod]
-        public void GetGueltigBis_Should_Return_Date_When_Line_Contains_Valid()
+        public void GetGueltigBis_ShouldReturnDate_WhenLineContainsValid()
         {
             // Arrange
-            var cycleText = new List<string> { "Valid: 01.01.2022 - 31.01.2022" };
-            navDataIoMock.Setup(x => x.GetTextFromCycleInfo()).Returns(cycleText);
+            var cycleText = new List<string> { "Valid : 01.01.2022 - 31.01.2022" };
+            mockNavDataIo.Setup(x => x.GetTextFromCycleInfo()).Returns(cycleText);
 
             // Act
             var result = cycleInfoInterpreter.GetGueltigBis();
@@ -61,11 +73,11 @@ namespace DanielSchiffer.HCS.Logic.NavdataUpdater.Tests
         }
 
         [TestMethod]
-        public void GetGueltigBis_Should_Return_Dash_When_Line_Does_Not_Contain_Valid()
+        public void GetGueltigBis_ShouldReturnDash_WhenLineDoesNotContainValid()
         {
             // Arrange
             var cycleText = new List<string> { "Some other line" };
-            navDataIoMock.Setup(x => x.GetTextFromCycleInfo()).Returns(cycleText);
+            mockNavDataIo.Setup(x => x.GetTextFromCycleInfo()).Returns(cycleText);
 
             // Act
             var result = cycleInfoInterpreter.GetGueltigBis();
@@ -75,11 +87,11 @@ namespace DanielSchiffer.HCS.Logic.NavdataUpdater.Tests
         }
 
         [TestMethod]
-        public void GetGueltigVon_Should_Return_Date_When_Line_Contains_Valid()
+        public void GetGueltigVon_ShouldReturnDate_WhenLineContainsValid()
         {
             // Arrange
-            var cycleText = new List<string> { "Valid: 01.01.2022 - 31.01.2022" };
-            navDataIoMock.Setup(x => x.GetTextFromCycleInfo()).Returns(cycleText);
+            var cycleText = new List<string> { "Valid : 01.01.2022 - 31.01.2022" };
+            mockNavDataIo.Setup(x => x.GetTextFromCycleInfo()).Returns(cycleText);
 
             // Act
             var result = cycleInfoInterpreter.GetGueltigVon();
@@ -89,11 +101,11 @@ namespace DanielSchiffer.HCS.Logic.NavdataUpdater.Tests
         }
 
         [TestMethod]
-        public void GetGueltigVon_Should_Return_Dash_When_Line_Does_Not_Contain_Valid()
+        public void GetGueltigVon_ShouldReturnDash_WhenLineDoesNotContainValid()
         {
             // Arrange
             var cycleText = new List<string> { "Some other line" };
-            navDataIoMock.Setup(x => x.GetTextFromCycleInfo()).Returns(cycleText);
+            mockNavDataIo.Setup(x => x.GetTextFromCycleInfo()).Returns(cycleText);
 
             // Act
             var result = cycleInfoInterpreter.GetGueltigVon();

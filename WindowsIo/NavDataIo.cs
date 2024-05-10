@@ -1,26 +1,27 @@
-﻿using System.IO;
+﻿using DanielSchiffer.HCS.Contracts.IOSIO;
+using System.IO;
 namespace DanielSchiffer.HCS.Logic.WindowsIo
 {
-    public class NavDataIo
+    public class NavDataIo : INavDataIo
     {
         public string GetFsBuildImportFolder()
         {
             return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "HCS", "FSbuildImport");
         }
-        public bool createFSbuildImportFolder()
+        public bool CreateFSbuildImportFolder()
         {
             bool IsErstellt = false;
 
-           var ort = GetFsBuildImportFolder();
+            var ort = GetFsBuildImportFolder();
             if (!Directory.Exists(ort))
             {
                 try
                 {
-                Directory.CreateDirectory(ort);
-                // Create an empty file named 'FsBuild2.exe'
-                string filePath = Path.Combine(ort, "FsBuild2.exe");
-                File.Create(filePath).Close();
-                IsErstellt = true;
+                    Directory.CreateDirectory(ort);
+                    // Create an empty file named 'FsBuild2.exe'
+                    string filePath = Path.Combine(ort, "FsBuild2.exe");
+                    File.Create(filePath).Close();
+                    IsErstellt = true;
                 }
                 catch (Exception)
                 {
@@ -38,7 +39,7 @@ namespace DanielSchiffer.HCS.Logic.WindowsIo
                 return new List<string>();
 
             return File.ReadAllLines(pfad).ToList();
-            
+
         }
     }
 }

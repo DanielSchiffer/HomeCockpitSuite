@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DanielSchiffer.HCS.Contracts.IOSIO;
 using DanielSchiffer.HCS.Logic.NavdataUpdater;
 using DanielSchiffer.HCS.Logic.WindowsIo;
 
@@ -10,37 +11,34 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 {
     public class NavdataUpdateModel : ViewModelBase
     {
-        private readonly NavDataIo winIo;
+        private readonly INavDataIo winIo;
         private readonly Updater updater;
 
-        public NavdataUpdateModel(NavDataIo io, Updater updater)
+        public NavdataUpdateModel(INavDataIo io, Updater updater)
         {
-            this.winIo = io;
+            winIo = io;
             this.updater = updater;
-            initialisiereFenster();
+            InitializeWindow();
         }
 
         public void OnLoad()
         {
-            
-            winIo.createFSbuildImportFolder();
+            winIo.CreateFSbuildImportFolder();
+            Airac = updater.GetAirVersionFromFile() ?? "-";
+            GueltigVon = updater.GetGueltigVonFromFile() ?? "-";
+            GueltigBis = updater.GetGueltigBisFromFile() ?? "-";
         }
 
-        private void initialisiereFenster()
+        private void InitializeWindow()
         {
-            airac = updater.GetAirVersionFromFile();
-            gesamtFortschritt = 0;
-            workItemFortschritt = 0;
-            workItemText = "";
-            gueltigVon = updater.GetGueltigVonFromFile();
-            gueltigBis = updater.getGueltigBisFromFile();
-
+            GesamtFortschritt = 0;
+            WorkItemFortschritt = 0;
+            WorkItemText = "";
         }
 
         internal void OnClose()
         {
-           
-        
+            // Keine Aktion erforderlich
         }
 
         internal void Erstellen()
@@ -48,18 +46,18 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
             throw new NotImplementedException();
         }
 
-        #region Propertys
-        private string? airac;
+        #region Eigenschaften
+        private string airac = "-";
         private int gesamtFortschritt;
-        private int workItemFortschritt  ;
-        private string? workItemText;
-        private string? gueltigVon;
-        private string? gueltigBis;
+        private int workItemFortschritt;
+        private string workItemText = "";
+        private string gueltigVon = "-";
+        private string gueltigBis = "";
         private bool navdataErstellbar;
 
         public int GesamtFortschritt
         {
-            get { return gesamtFortschritt; }
+            get => gesamtFortschritt;
             set
             {
                 if (gesamtFortschritt != value)
@@ -68,12 +66,11 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
                     OnPropertyChanged();
                 }
             }
-
         }
 
         public int WorkItemFortschritt
         {
-            get { return workItemFortschritt; }
+            get => workItemFortschritt;
             set
             {
                 if (workItemFortschritt != value)
@@ -86,7 +83,7 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 
         public string WorkItemText
         {
-            get { return workItemText is null ? "-" : workItemText; }
+            get => string.IsNullOrEmpty(workItemText) ? "-" : workItemText;
             set
             {
                 if (workItemText != value)
@@ -97,10 +94,9 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
             }
         }
 
-
         public string Airac
         {
-            get { return airac is null ? "-" : airac; }
+            get => string.IsNullOrEmpty(airac) ? "-" : airac;
             set
             {
                 if (airac != value)
@@ -113,22 +109,20 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 
         public string GueltigVon
         {
-            get { return gueltigVon is null ? "-" : gueltigVon; }
+            get => string.IsNullOrEmpty(gueltigVon) ? "-" : gueltigVon;
             set
             {
                 if (gueltigVon != value)
                 {
                     gueltigVon = value;
                     OnPropertyChanged();
-
                 }
             }
-
         }
 
         public string GueltigBis
         {
-            get { return gueltigBis is null ? "" : gueltigBis; }
+            get => string.IsNullOrEmpty(gueltigBis) ? "" : gueltigBis;
             set
             {
                 if (gueltigBis != value)
@@ -141,8 +135,7 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
 
         public bool NavdataErstellbar
         {
-            get { return navdataErstellbar; }
-
+            get => navdataErstellbar;
             set
             {
                 if (navdataErstellbar != value)
@@ -152,7 +145,6 @@ namespace DanielSchiffer.HCS.UI.HCS_Winforms.ViewModels
                 }
             }
         }
-
         #endregion
     }
 }

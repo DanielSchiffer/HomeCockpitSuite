@@ -1,10 +1,12 @@
-﻿namespace DanielSchiffer.HCS.Logic.NavdataUpdater
+﻿using DanielSchiffer.HCS.Contracts.NavdataUpdaterContract;
+
+namespace DanielSchiffer.HCS.Logic.NavdataUpdater
 {
     public class Updater
     {
-        private CycleInfoInterpreter cycleInfo;
+        private ICycleInfoInterpreter cycleInfo;
 
-        public Updater(CycleInfoInterpreter cycle)
+        public Updater(ICycleInfoInterpreter cycle)
         {
             cycleInfo = cycle;
         }
@@ -15,7 +17,7 @@
             return result;
         }
 
-        public string? getGueltigBisFromFile()
+        public string? GetGueltigBisFromFile()
         {
             string result = cycleInfo.GetGueltigBis();
             return result;
